@@ -722,10 +722,18 @@ __myevic__ void AtoWarmUp()
 	BBCMode = 0;
 	WarmUpCounter = 0;
 
+//	uint32_t nloops = 0;
+//
+//	TickCount = 0;
+//	StartTickCount();
+
 	// Loop time around 19us on atomizer probing
 	//  and around 26.4us (37.86kHz) on firing.
+	// With fast ADC modifs: 16.7us (59.85kHz)
 	do
 	{
+//		++nloops;
+
 		if ( !(gFlags.probing_ato) && !(gFlags.firing) )
 			break;
 
@@ -745,6 +753,14 @@ __myevic__ void AtoWarmUp()
 
 	}
 	while ( WarmUpCounter < 2000 );
+
+//	StopTickCount();
+//
+//	if ( gFlags.firing )
+//	{
+//		myprintf( "TICKS=%d (%dus) LOOPS=%d T/L=%d (%dus)\n",
+//			TickCount, TickCount/72, nloops, TickCount/nloops, TickCount/nloops/72 );
+//	}
 }
 
 
