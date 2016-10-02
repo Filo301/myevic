@@ -224,6 +224,9 @@ extern const uint16_t String_DMY[];
 extern const uint16_t String_MDY[];
 extern const uint16_t String_Dial[];
 extern const uint16_t String_Invert[];
+extern const uint16_t String_PWM[];
+extern const uint16_t String_CPU[];
+extern const uint16_t String_PLL[];
 
 
 //==============================================================================

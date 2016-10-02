@@ -538,6 +538,13 @@ __myevic__ void ExpertMenuIDraw( int it, int line, int sel )
 			DrawString( GetBatteryName(), 36, line+2 );
 			break;
 
+		case 5:	// PWM
+			if ( gFlags.pwm_pll )
+				DrawString( String_PLL, 36, line+2 );
+			else
+				DrawString( String_CPU, 36, line+2 );
+			break;
+
 		default:
 			break;
 	}
@@ -586,7 +593,12 @@ __myevic__ void ExpertMenuOnClick()
 			SetBatMaxPower();
 			break;
 
-		case 5:	// Exit
+		case 5:	// PWM
+			gFlags.pwm_pll ^= 1;
+			InitPWM();
+			break;
+
+		case 6:	// Exit
 			UpdateDataFlash();
 			MainView();
 			break;
@@ -1215,13 +1227,14 @@ const menu_t ExpertMenu =
 	0,
 	ExpertMenuOnClick+1,
 	0,
-	6,
+	7,
 	{
 		{ String_USB, 0, -1, 0 },
 		{ String_DBG, 0, -1, 0 },
 		{ String_X32, 0, -1, 0 },
 		{ String_NFE, 0, -1, 0 },
 		{ String_BAT, 0, -1, 0 },
+		{ String_PWM, 0, -1, 0 },
 		{ String_Exit, 0, 1, 30 }
 	}
 };

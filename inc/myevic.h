@@ -8,9 +8,20 @@
 
 #define __myevic__ __attribute__ ((section (".myevic")))
 
+//-------------------------------------------------------------------------
+
+#define CPU_FREQ		72000000
+#define PLL_FREQ		(CPU_FREQ<<1)
+
+#define BBC_PWM_FREQ	150000
+
+//-------------------------------------------------------------------------
+
 #define	ISMODETC(m) ((m)<=3)
 #define ISMODEVW(m) (((m)==4)||((m)==6))
 #define ISMODEBY(m) ((m)==5)
+
+//-------------------------------------------------------------------------
 
 #define FWVERSION	330
 
@@ -19,6 +30,8 @@
 #define __BUILD2	(	__DAY__ % 10 + __DAY__ / 10 << 4 \
 					+	__MONTH__ % 10 << 8 + __MONTH__ / 10 << 12 \
 					+	__YEAR__ % 10 << 16 + __YEAR__ / 10 % 10 << 20 )
+
+//-------------------------------------------------------------------------
 
 #define PID_VTCMINI		(*(uint32_t*)"E052")
 #define PID_VTWOMINI	(*(uint32_t*)"E115")
@@ -106,6 +119,7 @@ typedef struct
 /* 00100000 */	int read_bir:1;
 /* 00200000 */	int monitoring:1;
 /* 00400000 */	int autopuff:1;
+/* 00800000 */	int pwm_pll:1;
 }
 gFlags_t;
 
