@@ -364,6 +364,7 @@ __myevic__ void DevicesOnOff( int off )
 
 		PB7 = 1;
 
+		EADC_Open( EADC, EADC_CTL_DIFFEN_SINGLE_END );
 		SetADCState( 1, 1 );
 		SetADCState( 2, 1 );
 		SetADCState( 14, 1 );

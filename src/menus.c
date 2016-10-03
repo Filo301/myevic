@@ -542,7 +542,7 @@ __myevic__ void ExpertMenuIDraw( int it, int line, int sel )
 			if ( gFlags.pwm_pll )
 				DrawString( String_PLL, 36, line+2 );
 			else
-				DrawString( String_CPU, 36, line+2 );
+				DrawString( String_CCK, 36, line+2 );
 			break;
 
 		default:
